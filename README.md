@@ -79,6 +79,7 @@ https://ai-resume-generator-nine-psi.vercel.app/
 Backend API:
 
 https://ai-resume-generator-zyaq.onrender.com
+(Source code: https://github.com/Consoli310/ai-resume-generator)
 
 ## Author
 
