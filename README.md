@@ -1,16 +1,85 @@
-# React + Vite
+# AI Resume Generator - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Dashboard](./screenshots/dashboard.png)
 
-Currently, two official plugins are available:
+Frontend application for AI Resume Generator, built with React and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This application allows users to authenticate, provide a job description and their current resume, and receive an AI-optimized version of their resume ready for download as a PDF.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* User registration and authentication
+* JWT-based authorization
+* Protected routes
+* AI-powered resume tailoring
+* PDF generation and download
+* Integration with a Spring Boot backend
+* Modern and responsive user interface
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Create an account or log in.
+2. Provide the target job description.
+3. Paste your current resume information.
+4. Submit the request.
+5. The backend uses AI to optimize the resume according to the job requirements.
+6. A customized PDF resume is generated and automatically downloaded.
+
+## Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* React Router
+* Axios
+* CSS
+
+### Backend
+
+* Java
+* Spring Boot
+* Spring Security
+* JWT Authentication
+* Google Gemini API
+* PDF Generation
+
+## Running Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:5173
+```
+
+## Backend Repository
+
+The backend source code is available at:
+
+https://github.com/Consoli310/ai-resume-generator
+
+## Live Demo
+
+Frontend:
+
+https://ai-resume-generator-nine-psi.vercel.app/
+
+Backend API:
+
+https://ai-resume-generator-zyaq.onrender.com
+
+## Author
+
+Matheus Consoli

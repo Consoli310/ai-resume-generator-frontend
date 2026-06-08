@@ -148,7 +148,9 @@ export default function Dashboard() {
 
 <textarea
     rows={12}
-    placeholder={`Nome:
+    placeholder={`Seu Currículo:
+        
+Nome:
 Email:
 Telefone:
 Cidade:
