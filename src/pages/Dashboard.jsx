@@ -57,17 +57,50 @@ export default function Dashboard() {
         } catch (error) {
 
             console.error(error);
-
-            if (error.response?.data) {
-
-                const text =
-                    await error.response.data.text();
-
-                console.log(text);
+        
+            try {
+        
+                if (error.response?.data) {
+        
+                    const text =
+                        await error.response.data.text();
+        
+                    const json =
+                        JSON.parse(text);
+        
+                    if (
+                        json.status === 502 &&
+                        json.message?.includes(
+                            "experiencing high demand"
+                        )
+                    ) {
+        
+                        alert(
+                            "A IA está temporariamente sobrecarregada. Aguarde alguns instantes e tente novamente."
+                        );
+        
+                        return;
+                    }
+        
+                    alert(
+                        json.message ||
+                        "Erro ao gerar PDF"
+                    );
+        
+                    return;
+                }
+        
+            } catch (e) {
+        
+                console.error(
+                    "Erro ao processar resposta:",
+                    e
+                );
             }
-
-            alert("Erro ao gerar PDF");
-
+        
+            alert(
+                "Erro inesperado ao gerar PDF."
+            );
         } finally {
 
             setLoading(false);
@@ -113,16 +146,38 @@ export default function Dashboard() {
                 }
             />
 
-            <textarea
-                rows={10}
-                placeholder="Currículo atual"
-                value={currentResumeText}
-                onChange={(e) =>
-                    setCurrentResumeText(
-                        e.target.value
-                    )
-                }
-            />
+<textarea
+    rows={12}
+    placeholder={`Nome:
+Email:
+Telefone:
+Cidade:
+LinkedIn:
+GitHub:
+
+Resumo profissional:
+
+Skills:
+- ...
+
+Formação:
+- ...
+
+Experiências:
+- ...
+
+Projetos:
+- ...
+
+Idiomas:
+- ...`}
+    value={currentResumeText}
+    onChange={(e) =>
+        setCurrentResumeText(
+            e.target.value
+        )
+    }
+/>
 
             <button
                 className="download-btn"
